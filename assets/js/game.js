@@ -14,7 +14,7 @@ var enemyAttack = 12;
 //creates function
 var fight = function() {
     //alert users they are starting round
-    window.alert("Welcome to Robot Gladiators!");
+    window.alert("Welcome to Feline Gladiators!");
 
    //Subtract the value of `playerAttack` from the value of `enemyHealth` and use that result to update the value in the `enemyHealth` variable
 
@@ -23,7 +23,7 @@ var fight = function() {
   // Log a resulting message to the console so we know that it worked
   console.log(
       playerName +  " attacked " + enemyName + ". " + enemyName + " now has " + " health remaining."
-  );
+  )
 
   // Subtract the value of `enemyAttack` from the value of `playerHealth` and use that result to update the value in the `playerHealth` variable.
   playerHealth = playerHealth - enemyAttack;
@@ -31,9 +31,7 @@ var fight = function() {
   // Log a resulting message to the console so we know that it worked.
   console.log(
       enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
-  );
-
- 
+  )
 
 };
 
@@ -54,7 +52,16 @@ console.log(
 if (enemyHealth <  0) {
     window.alert(enemyName + " has died!");
 }
-
 else {
     window.alert(enemyName + " still has " + enemyHealth + " health left.");
+}
+
+
+console.log(enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining.");
+//check enemy's health
+if (playerName <= 0) {
+    window.alert(playerName + " has died!");
+}
+else {
+    window.alert(playerName + " still has " + playerHealth + " health left.");
 }

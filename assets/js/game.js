@@ -77,8 +77,47 @@ var fight = function(enemyName) {
     }
 };
 
-for(var i = 0; i < enemyNames.length; i++) {
-    var pickedEnemyName = enemyNames[i];
-    enemyHealth = 50;
-    fight(pickedEnemyName);
-  }
+//fucntion to start the new name
+var startGame = function() {
+    //reset player stats
+    playerHealth = 100;
+    playerAttack = 10;
+    playerMoney = 10;
+
+    for(var i = 0; i < enemyNames.length; i++) {
+        if (playerHealth > 0) {
+            //lets user know which round their in
+            window.alert("Welcome to Feline Gladiators! Round" + (i + 1));
+            //picker new enemy to fight based on the index of the enemyNames array
+            var pickedEnemyName = enemyNames[i];
+            //reset the health
+            enemyHealth = 50;
+            //pass the pickedEnemyName var's value inot the fight function
+            fight(pickedEnemyName);
+        } else {
+            window.alert("You have lost your feline gladiator in battle! Game Over!");
+            break;
+        }
+    }
+    //if game ends, run end game
+    endGame();
+};
+
+var endGame = function() {
+    //if player is still alive, player wins!
+    if (playerHealth > 0) {
+        window.alert("Great job, you've survived the game! You now have a score " + playerMoney + ".");
+    } else {
+        window.alert("You've lost you robot in battle.");
+    }
+    //ask player if they'd like to play again
+    var playAgainConfirm = window.confirm("Would you like to play again?");
+    if (playAgainConfirm) {
+        //restart the game
+        startGame();
+    } else {
+        window.alert("Thank you for playing the Feline Gladiators game! Come back soon!");
+    }
+};
+
+startGame();
